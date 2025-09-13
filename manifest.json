@@ -1,0 +1,9 @@
+{
+    "name": "advanced-tts-control",
+    "displayName": "Advanced TTS Control",
+    "version": "1.0.0",
+    "author": "AI",
+    "description": "An advanced text-to-speech generation tool with parsing, voice profiles, and queued playback.",
+    "entry": "script.js",
+    "icon": "icon.png"
+}

@@ -1,0 +1,89 @@
+<div id="adv-tts-app-container" class="adv-tts-container">
+    <!-- Loading Overlay -->
+    <div id="adv-tts-loading-overlay" class="adv-tts-loading-overlay" style="display: none;">
+        <div class="adv-tts-loading-spinner"></div>
+        <p>Preparing Audio...</p>
+    </div>
+
+    <!-- Header -->
+    <header class="adv-tts-header">
+        <h1>Advanced TTS Control</h1>
+        <div class="adv-tts-preset-manager">
+            <input type="text" id="adv-tts-preset-name-input" placeholder="Preset Name" class="adv-tts-input">
+            <button id="adv-tts-save-preset-btn" class="adv-tts-btn adv-tts-btn-cyan">Save</button>
+            <select id="adv-tts-preset-select" class="adv-tts-input">
+                <option value="">Load Preset...</option>
+            </select>
+            <button id="adv-tts-delete-preset-btn" class="adv-tts-btn adv-tts-btn-red">Delete</button>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="adv-tts-main-grid">
+        <!-- Left Column: Settings -->
+        <div class="adv-tts-column">
+            <div id="adv-tts-settings-general" class="adv-tts-card"></div>
+            <div id="adv-tts-settings-params" class="adv-tts-card"></div>
+            <div id="adv-tts-settings-profiles" class="adv-tts-card"></div>
+            <div id="adv-tts-settings-delimiters" class="adv-tts-card"></div>
+            <div id="adv-tts-settings-regex" class="adv-tts-card"></div>
+        </div>
+
+        <!-- Middle Column: Input & Output -->
+        <div class="adv-tts-column">
+            <div class="adv-tts-card adv-tts-card-full-height">
+                <h2>Input Text</h2>
+                <textarea id="adv-tts-input-textarea" class="adv-tts-textarea" placeholder="Enter text to process..."></textarea>
+                <div class="adv-tts-input-actions">
+                    <button id="adv-tts-parse-btn" class="adv-tts-btn adv-tts-btn-blue">Parse Text</button>
+                    <button id="adv-tts-prepare-btn" class="adv-tts-btn adv-tts-btn-green">Prepare Audio</button>
+                    <button id="adv-tts-panic-btn" class="adv-tts-btn-icon adv-tts-btn-red" title="Stop Everything">&#9724;</button>
+                </div>
+            </div>
+            <div class="adv-tts-card adv-tts-card-full-height">
+                <h2>Parsed Output</h2>
+                <div id="adv-tts-output-container" class="adv-tts-output-box">
+                    <p class="adv-tts-placeholder">// Output will appear here...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Playback & Debug -->
+        <div class="adv-tts-column">
+            <div class="adv-tts-card">
+                <h2>Playback Controls</h2>
+                <div class="adv-tts-playback-controls">
+                    <button id="adv-tts-rewind-btn" class="adv-tts-btn-icon" title="Previous">&#9194;</button>
+                    <button id="adv-tts-play-pause-btn" class="adv-tts-btn-icon adv-tts-btn-icon-large" title="Play/Pause">&#9654;</button>
+                    <button id="adv-tts-skip-btn" class="adv-tts-btn-icon" title="Next">&#9193;</button>
+                    <button id="adv-tts-replay-all-btn" class="adv-tts-btn-icon" title="Replay All">&#8635;</button>
+                </div>
+                <div class="adv-tts-volume-control">
+                    <label for="adv-tts-volume-slider">Volume: <span id="adv-tts-volume-value">100%</span></label>
+                    <input type="range" id="adv-tts-volume-slider" min="0" max="1" step="0.01" value="1" class="adv-tts-slider">
+                </div>
+                <div class="adv-tts-autoplay-control">
+                    <input type="checkbox" id="adv-tts-autoplay-toggle" checked>
+                    <label for="adv-tts-autoplay-toggle">Autoplay</label>
+                </div>
+            </div>
+            <div class="adv-tts-card adv-tts-card-full-height">
+                <h2>Playlist Queue</h2>
+                <div id="adv-tts-playlist-container" class="adv-tts-output-box">
+                    <p class="adv-tts-placeholder">// Queue is empty...</p>
+                </div>
+            </div>
+             <div id="adv-tts-debug-container" class="adv-tts-card adv-tts-card-collapsible">
+                <h2 id="adv-tts-debug-header">
+                    API Request Log
+                    <button id="adv-tts-clear-log-btn" class="adv-tts-btn adv-tts-btn-xs">Clear</button>
+                </h2>
+                <div id="adv-tts-debug-content" class="adv-tts-output-box" style="display: none;">
+                    <p class="adv-tts-placeholder">No requests logged yet.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<link rel="stylesheet" href="/index.css">
+<script type="module" src="/index.tsx"></script>
