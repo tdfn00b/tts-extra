@@ -3,6 +3,7 @@
     "loading_order": 5,
     "requires": [],
     "optional": [],
+    "dependencies": [],
     "version": "0.1.0",
     "author": "tdfn00b",
     "description": "An advanced text-to-speech generation tool with parsing, voice profiles, and queued playback.",
