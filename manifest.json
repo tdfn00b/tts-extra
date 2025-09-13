@@ -8,6 +8,5 @@
     "description": "An advanced text-to-speech generation tool with parsing, voice profiles, and queued playback.",
     "js": "script.js",
     "css": "style.css",
-
     "homePage": "https://github.com/tdfn00b/tts-extra"
 }

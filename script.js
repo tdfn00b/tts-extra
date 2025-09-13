@@ -7,8 +7,8 @@ import * as player from './lib/player.js';
 import { generateUniqueId } from './services/utils.js';
 
 // Scope state for SillyTavern extension
-const extensionName = self.SillyTavernExtensionModule.name;
-const extensionFolderPath = `extensions/${extensionName}/`;
+const extensionName = 'tts-extra';
+const extensionFolderPath = `extensions/third-party/${extensionName}/`;
 let dom = {};
 
 // --- CORE HANDLERS ---
@@ -248,25 +248,25 @@ const removeEventListeners = () => {
 // --- SILLYTAVERN EXTENSION MODULE ---
 const sillyTavernExtensionModule = {
     onLoad: async () => {
-        const cssPath = `${extensionFolderPath}style.css`;
+        const cssPath = `./style.css`;
         const link = document.createElement("link");
         link.rel = "stylesheet";
         link.type = "text/css";
         link.href = cssPath;
         link.id = "adv-tts-style";
         document.head.appendChild(link);
-        
-        const htmlPath = `${extensionFolderPath}index.html`;
+
+        const htmlPath = `./index.html`;
         try {
             const response = await fetch(htmlPath);
             if (!response.ok) return console.error('Failed to load Advanced TTS HTML');
-            
-            const extensionsTab = document.querySelector('#extensions_tab');
-            if (extensionsTab) {
+
+            const extensionsSettings = document.querySelector('#extensions_settings');
+            if (extensionsSettings) {
                 const container = document.createElement('div');
                 container.innerHTML = await response.text();
-                extensionsTab.appendChild(container);
-                
+                extensionsSettings.appendChild(container);
+
                 dom = getDomElements();
                 renderer.init(dom);
                 player.init(dom);
@@ -282,7 +282,7 @@ const sillyTavernExtensionModule = {
                 console.log("Advanced TTS Control loaded successfully.");
 
             } else {
-                console.error("Could not find extensions tab to attach Advanced TTS UI.");
+                console.error("Could not find extensions settings to attach Advanced TTS UI.");
             }
         } catch (error) {
             console.error('Error loading Advanced TTS extension:', error);
