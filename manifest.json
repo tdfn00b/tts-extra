@@ -1,10 +1,13 @@
 {
-    "name": "advanced-tts-control",
-    "displayName": "Advanced TTS Control",
-    "version": "1.0.0",
-    "author": "AI",
+    "display_name": "Advanced TTS Control",
+    "loading_order": 5,
+    "requires": [],
+    "optional": [],
+    "version": "0.1.0",
+    "author": "tdfn00b",
     "description": "An advanced text-to-speech generation tool with parsing, voice profiles, and queued playback.",
-    "entry": "script.js",
-    "icon": "icon.png",
+    "js": "script.js",
+    "css": "style.css",
+
     "homePage": "https://github.com/tdfn00b/tts-extra"
 }
